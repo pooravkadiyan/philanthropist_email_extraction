@@ -24,9 +24,11 @@ The task is to search the entire internet for the email of the donor with google
 | Entrepreneur | Must be having a email on linkedin or on some white pages or maybe a personal blog. For example: Richard Branson |  Ignore for Now(except personal blog) |
 | Organization | Must be having a business website with contact details. For Example: Bill & Melinda Gates Foundation | <ul><li>Find a list of webpages by searching on google with different search combinations and operators.</li><li>We can extract the email from those webpages using regex.</li></ul> |
 
-Finding Portfolio website of a person 
+Finding Portfolio/Business/Blog website of a person/organization. 
 
 1- Search "[name] + contact (or) contact information (or) contact me"
+2-Extract the top 5 results(urls).
+3-Perform required operations and extract email and write in a csv file.
 
 
 
