@@ -20,8 +20,8 @@ The task is to search the entire internet for the email of the donor with google
 | Donor Type   |      Assumptions     |  Strategy |
 |----------|:-------------:|------:|
 | Professional | Must be having a personal website with contact details. For Example: A Interior Designer | <ul><li>Find a list of webpages by searching on google with different search combinations and operators.</li><li>We can extract the email from those webpages using regex.</li></ul>|
-| Employee | Must be having a email associated with that organization. For example: CTO at Google |   $12 |
-| Entrepreneur | Must be having a email on linkedin or on some white pages or maybe a personal blog. For example: Richard Branson |  $1 |
+| Employee | Must be having a email associated with that organization. For example: CTO at Google |   Ignore for Now |
+| Entrepreneur | Must be having a email on linkedin or on some white pages or maybe a personal blog. For example: Richard Branson |  Ignore for Now(except personal blog) |
 | Organization | Must be having a business website with contact details. For Example: Bill & Melinda Gates Foundation | <ul><li>Find a list of webpages by searching on google with different search combinations and operators.</li><li>We can extract the email from those webpages using regex.</li></ul> |
 
 Finding Portfolio website of a person 
@@ -86,11 +86,6 @@ There are following ways to deal with it:-
 1- To use captcha solver for each 100 queries, but getting such AI based captcha solver is hard.
 
 2-Not only rotate proxy but also the router proxy, but getting such proxies(device+router proxies) is never quite costly. There are some free providers but the problem lies in increased time complexity.
-
--
-
-
-
 
 
 
