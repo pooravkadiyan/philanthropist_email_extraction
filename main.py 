@@ -1,0 +1,59 @@
+from selenium import webdriver
+import chromedriver_autoinstaller
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException    
+from bs4 import BeautifulSoup
+from urllib import request
+import time
+import csv
+
+chromedriver_autoinstaller.install()
+driver = webdriver.Chrome()
+
+#Getting the name of the donar from the CSV file
+
+with open("donors.csv", 'r') as file:
+  csvreader = csv.reader(file)
+  for row in csvreader:
+    name=row[0]
+    amount=row[1]
+    email=row[2]
+    #print(name, amount, email)
+
+"""Searching the entire internet for the email of the donor with google.
+
+The logic we are using is:-
+
+1-IF the person is a professional, then he/she will have a personal website with contact us. For example: Fashion Designer
+2-IF the person is a employee, then he/she will have a email associated with that organization. For example: CTO at Google
+3-IF the person is a entrepreneur/businessmen, then he/she will have a email on linkedin or on some white pages or maybe a personal blog. For example: Richard Brandson
+
+4-IF it's a organization, then he/she will have a email on their business website. For example: Oracle. We can extract the email from the website using regex.
+
+"""
+
+
+#Getting email supposing the person is a professional
+
+query = f"[{name}] + contact (or) contact information (or) contact me"
+
+driver.get("https://www.google.com/")
+m = driver.find_element(By.XPATH,"/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input")
+m.send_keys(query)
+m.submit()
+time.sleep(3)
+
+results_list = driver.find_elements_by_tag_name('a')
+top_3_results = []
+
+for i in results_list:
+  top_3_results.append(i.get_attribute('href'))
+  print(i.get_attribute('href'), '\n')
+  if i == 3:
+    break
+  else:
+    continue
+  i+=1
+
