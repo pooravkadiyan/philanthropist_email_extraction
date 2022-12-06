@@ -27,12 +27,8 @@ The task is to search the entire internet for the email of the donor with google
 Finding Portfolio/Business/Blog website of a person/organization. 
 
 1- Search "[name] + contact (or) contact information (or) contact me"
-2-Extract the top 5 results(urls).
+2-Extract the top 3 results(urls).
 3-Perform required operations and extract email and write in a csv file.
-
-
-
-
 
 
 
