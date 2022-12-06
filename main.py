@@ -25,7 +25,7 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name("service_account.
 client = gspread.authorize(credentials)
 
 #Google Sheet Variable 
-i=1
+i=85
 
 #Getting the name of the donar from the CSV file
 with open("input.csv", 'r') as file:
@@ -33,6 +33,7 @@ with open("input.csv", 'r') as file:
   for row in csvreader:
     name=row[0]
     print(name)
+    
      
     try:
       #Finding the potential lookup pages
@@ -51,7 +52,7 @@ with open("input.csv", 'r') as file:
 
               #Writing to the spreadsheet
               cellname = 'A'+str(i)
-              sheet_1.update(cellname, "it's down there somewhere, let me take another look.")
+              sheet_1.update(cellname, email)
               i+=1
           else:
             pass
