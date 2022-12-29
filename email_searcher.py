@@ -2,8 +2,9 @@ import re
 
 
 
-def email_extractor(text):
-    """This is a simple email searcher that will search for emails in a text file and return the emails found in the file.
+def email_extractor(text: str) -> list:
+    """
+    This is a simple email searcher that will search for emails in a text file and return the emails found in the file.
 
     But it should be noted that this is not a perfect email searcher. It will not find emails that are in the format of:
 
