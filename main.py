@@ -6,7 +6,9 @@ from oauth2client.service_account import ServiceAccountCredentials
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException    
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.chrome.options import Options  
+from pathlib import Path  
 import time
 import csv
 
@@ -16,6 +18,11 @@ from email_searcher import email_extractor
 from internet_searcher import internet_searcher
 
 #Setting up the requirements
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+
+fpath = Path("chromedriver").absolute()
+driver = webdriver.Chrome(options=chrome_options, executable_path="chromedriver")
 chromedriver_autoinstaller.install()
 driver = webdriver.Chrome()
 
