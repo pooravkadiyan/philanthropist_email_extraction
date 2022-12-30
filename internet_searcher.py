@@ -1,15 +1,26 @@
 from selenium import webdriver
-import chromedriver_autoinstaller
+#import chromedriver_autoinstaller
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException 
+from selenium.webdriver.chrome.options import Options 
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager 
+from selenium.webdriver.chrome.options import Options  
 import time
 
-chromedriver_autoinstaller.install()
-driver = webdriver.Chrome()
 
+#Setting up the requirements
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
 
+#fpath = Path("chromedriver").absolute()
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+#chromedriver_autoinstaller.install()
+#driver = webdriver.Chrome()
 
 def internet_searcher(name: str) -> list:
     """
